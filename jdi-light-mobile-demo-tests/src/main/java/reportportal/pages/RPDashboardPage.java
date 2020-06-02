@@ -7,7 +7,6 @@ import com.epam.jdi.light.mobile.elements.common.Icon;
 import com.epam.jdi.light.mobile.elements.common.Text;
 
 public class RPDashboardPage extends WebPage {
-
     @XPath("//*[contains(text(), 'You have no dashboards')]")
     public Text noDashboardsText;
     @XPath("//*[contains(text(), 'Add your first dashboard to analyse statistics')]")
@@ -22,5 +21,4 @@ public class RPDashboardPage extends WebPage {
     public Icon siteLogo;
     @XPath("//*[contains(text(), 'Cancel')]")
     public Button modalCancelButton;
-
 }

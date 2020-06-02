@@ -6,9 +6,7 @@ import com.epam.jdi.light.mobile.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.common.TextField;
 
 public class RPLoginPage extends WebPage {
-
     @XPath("//*[@placeholder='Login']") public TextField loginField;
     @XPath("//*[@placeholder='Password']") public TextField passwordField;
     @XPath("//*[@type='submit']") public Button loginButton;
-
 }

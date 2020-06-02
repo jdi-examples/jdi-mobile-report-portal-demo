@@ -8,39 +8,37 @@ import static org.testng.Assert.assertTrue;
 
 public class RPTests extends RPTestsInit {
 
-    // TODO: Move this login test to BeforeSuite
-    @Test(priority = 0)
-    public void loginTest() throws InterruptedException {
-        loginPage.loginField.sendKeys("test-user");
-        loginPage.passwordField.sendKeys("Fqvq1s0S");
-        // TODO: replace Thread.sleep with a WebDriverWait
-        Thread.sleep(3000);
-        loginPage.loginButton.click();
-    }
+    private static final String FIRST_DASHBOARD_TEXT = "Add your first dashboard to analyse statistics";
+    private static final String NO_DASHBOARD_TEXT = "You have no dashboards";
 
-    @Test(priority = 1)
+    @Test()
     public void labelTest() {
-        assertTrue(dashboardPage.noDashboardsText.getValue().contains("no dashboards"));
-        assertTrue(dashboardPage.addDashboardText.getValue().contains("first dashboard"));
+        dashboardPage.noDashboardsText.has().text(NO_DASHBOARD_TEXT);
+        dashboardPage.addDashboardText.has().text(FIRST_DASHBOARD_TEXT);
     }
 
-    @Test(priority = 2)
+    @Test()
     public void addDashboardModalTest() throws InterruptedException {
         dashboardPage.addDashboardButton.click();
         // TODO: replace w/Wait
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
         dashboardPage.modalCancelButton.click();
         // TODO: replace w/Wait
-        Thread.sleep(3000);
-        assertTrue(dashboardPage.siteLogo.isDisplayed());
+//        Thread.sleep(3000);
+        dashboardPage.siteLogo.is().displayed();
     }
 
-    @Test(priority = 3)
+    @Test()
     public void menuTest() {
         dashboardPage.hamburgerMenuButton.click();
         dashboardPage.launchesButton.click();
-        assertEquals(launchesPage.noResultsFoundLabel.getValue(), "No results found");
+        launchesPage.noResultsFoundLabel.has().text("No results found");
     }
 
+    @Test
+    public void profileMenuTest() {
+        profilePage.open();
+        profilePage.loginText.is().text("TEST-USER");
+    }
 
 }

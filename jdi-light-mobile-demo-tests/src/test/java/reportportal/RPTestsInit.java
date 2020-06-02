@@ -11,14 +11,22 @@ import static reportportal.RPSite.loginPage;
 public class RPTestsInit {
 
     @BeforeSuite(alwaysRun = true)
-    public static void setUp() {
+    public void setUp() {
         initElements(RPSite.class);
-        loginPage.open();
         logger.toLog("Run Tests");
+        login();
     }
 
+    private void login() {
+        loginPage.open();
+        loginPage.loginField.sendKeys("test-user");
+        loginPage.passwordField.sendKeys("Fqvq1s0S");
+        loginPage.loginButton.click();
+    }
+
+
     @AfterSuite(alwaysRun = true)
-    public static void tearDown() {
+    public void tearDown() {
         killAllSeleniumDrivers();
     }
 }
