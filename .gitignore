@@ -1,0 +1,13 @@
+*.iml
+.idea/
+target/
+*.zip
+*.exe
+.logs/
+*.xlsx
+.DS_Store/
+allure-results/
+downloads/
+*.log
+.allure/
+.settings/

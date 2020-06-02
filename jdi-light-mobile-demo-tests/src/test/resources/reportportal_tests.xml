@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="WINDOWS-1251"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="jdi-light demo report portal tests" parallel="methods" thread-count="1">
+    <test name="mobile tests">
+        <classes>
+            <class name="reportportal.RPTests"/>
+        </classes>
+    </test>
+    <listeners>
+        <listener class-name="reportportal.TestNGListener" />
+    </listeners>
+</suite>
