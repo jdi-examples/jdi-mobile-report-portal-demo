@@ -16,7 +16,9 @@ public class RPTestsInit {
     public void setUp() {
         String remoteUrl = getProperty("webdriver.remote.url");
         initElements(RPSite.class);
-        JDISettings.DRIVER.remoteUrl = "http://0.0.0.0:4724/wd/hub";
+        if(remoteUrl != null) {
+            JDISettings.DRIVER.remoteUrl = remoteUrl;
+        }
         logger.toLog("Run Tests");
         login();
     }
