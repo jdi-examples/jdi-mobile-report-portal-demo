@@ -13,4 +13,19 @@
         <module>jdi-light-mobile-demo-tests</module>
     </modules>
 
+    <properties>
+        <allure.testng>2.13.2</allure.testng>
+        <allure.maven>2.10.0</allure.maven>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven}</version>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
