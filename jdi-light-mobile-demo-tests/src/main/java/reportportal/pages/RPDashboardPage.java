@@ -13,10 +13,6 @@ public class RPDashboardPage extends WebPage {
     public Text addDashboardText;
     @XPath("//*[@class='emptyDashboards__empty-dashboard-content--RZbNx']//button")
     public Button addDashboardButton;
-    @XPath("//*[@class='mobileHeader__hamburger--95j4J']")
-    public Button hamburgerMenuButton;
-    @XPath("//*[contains(text(), 'Launches')]")
-    public Button launchesButton;
     @XPath("//*[@class='mobileHeader__rp-logo--QWmol']")
     public Icon siteLogo;
     @XPath("//*[contains(text(), 'Cancel')]")

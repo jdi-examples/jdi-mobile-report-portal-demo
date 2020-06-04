@@ -5,6 +5,8 @@ import com.epam.jdi.light.settings.JDISettings;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import static com.epam.jdi.light.mobile.driver.MobileDriverData.CAPABILITIES_FOR_ANDROID;
+import static com.epam.jdi.light.mobile.driver.MobileDriverData.CAPABILITIES_FOR_IOS;
 import static com.epam.jdi.light.mobile.elements.init.PageFactory.initElements;
 import static com.epam.jdi.light.settings.WebSettings.logger;
 import static java.lang.System.getProperty;
@@ -15,7 +17,9 @@ public class RPTestsInit {
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
         String remoteUrl = getProperty("webdriver.remote.url");
+        initPlatform();
         initElements(RPSite.class);
+        setCaps();
         if(remoteUrl != null) {
             JDISettings.DRIVER.remoteUrl = remoteUrl;
         }
@@ -33,6 +37,20 @@ public class RPTestsInit {
         loginPage.loginButton.click();
     }
 
+    private void setCaps() {
+        String platform = getProperty("mobile.platform.name").toLowerCase();
+        if (platform.equals("ios")) {
+            CAPABILITIES_FOR_IOS.put("deviceName", getProperty("mobile.device.name"));
+            CAPABILITIES_FOR_IOS.put("platformVersion", getProperty("mobile.platform.version"));
+        } else {
+            CAPABILITIES_FOR_ANDROID.put("deviceName", getProperty("mobile.device.name"));
+            CAPABILITIES_FOR_ANDROID.put("platformVersion", getProperty("mobile.platform.version"));
+        }
+    }
+
+    private void initPlatform() {
+        JDISettings.DRIVER.name = getProperty("mobile.platform.name").toLowerCase();
+    }
 
     @AfterSuite(alwaysRun = true)
     public void tearDown() {
