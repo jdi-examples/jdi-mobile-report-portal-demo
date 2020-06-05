@@ -36,6 +36,6 @@ public class RPSite {
     @XPath("//a[@href='#jdi-tests/settings']")
     public static Link settingsButton;
     @XPath("//a[@href='#jdi-tests/members']")
-    public static Link memberssButton;
+    public static Link membersButton;
 
 }

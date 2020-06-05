@@ -6,7 +6,4 @@
             <class name="reportportal.RPTests"/>
         </classes>
     </test>
-    <!--<listeners>-->
-        <!--<listener class-name="reportportal.TestNGListener" />-->
-    <!--</listeners>-->
 </suite>
