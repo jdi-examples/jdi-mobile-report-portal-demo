@@ -21,7 +21,12 @@
         <jetty.version>9.4.12.RC2</jetty.version>
         <aspectj.version>1.9.5</aspectj.version>
         <suiteXml>reportportal_tests.xml</suiteXml>
-        <reportportal.version>5.0.0-RC-2</reportportal.version>
+        <rp.endpoint>https://rp.epam.com</rp.endpoint>
+        <rp.project>epm-jdi</rp.project>
+        <rp.launch>JDI Light Mobile Tests Launch</rp.launch>
+        <rp.enable>true</rp.enable>
+        <rp.description>JDI Light Mobile Tests</rp.description>
+        <rp.mode>DEFAULT</rp.mode>
     </properties>
 
     <repositories>
@@ -78,13 +83,13 @@
         <dependency>
             <groupId>com.epam.reportportal</groupId>
             <artifactId>agent-java-testng</artifactId>
-            <version>${reportportal.version}</version>
+            <version>4.2.3</version>
         </dependency>
 
         <dependency>
             <groupId>com.epam.reportportal</groupId>
             <artifactId>logger-java-log4j</artifactId>
-            <version>5.0.0-RC-2</version>
+            <version>4.0.1</version>
         </dependency>
 
         <dependency>
@@ -133,7 +138,7 @@
                     <properties>
                         <property>
                             <name>listener</name>
-                            <value>com.epam.reportportal.testng.ReportPortalTestNGListener</value>
+                            <value>reportportal.MyListener</value>
                         </property>
                     </properties>
                 </configuration>
@@ -144,11 +149,15 @@
             <resource>
                 <directory>${project.basedir}/src/main/resources</directory>
             </resource>
-            <resource>
-                <directory>${project.basedir}/src/test/resources</directory>
-                <filtering>true</filtering>
-            </resource>
         </resources>
+
+        <testResources>
+            <testResource>
+                <directory>src/test/resources</directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
+
     </build>
 
     <!--&lt;!&ndash; Allure reporting config in parent&ndash;&gt;-->
