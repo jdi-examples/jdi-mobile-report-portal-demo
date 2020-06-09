@@ -20,6 +20,7 @@
         <allure.maven>2.10.0</allure.maven>
         <jetty.version>9.4.12.RC2</jetty.version>
         <aspectj.version>1.9.5</aspectj.version>
+        <reportportal.version>5.0.0</reportportal.version>
         <suiteXml>reportportal_tests.xml</suiteXml>
         <rp.launch>JDI Light Mobile Demo</rp.launch>
         <rp.enable>true</rp.enable>
@@ -81,13 +82,13 @@
         <dependency>
             <groupId>com.epam.reportportal</groupId>
             <artifactId>agent-java-testng</artifactId>
-            <version>4.2.3</version>
+            <version>${reportportal.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.epam.reportportal</groupId>
             <artifactId>logger-java-log4j</artifactId>
-            <version>4.0.1</version>
+            <version>${reportportal.version}</version>
         </dependency>
 
         <dependency>
