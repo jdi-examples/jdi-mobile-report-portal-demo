@@ -21,10 +21,10 @@
         <jetty.version>9.4.12.RC2</jetty.version>
         <aspectj.version>1.9.5</aspectj.version>
         <suiteXml>reportportal_tests.xml</suiteXml>
-        <rp.launch>JDI Light Mobile Tests Launch</rp.launch>
+        <rp.launch>JDI Light Mobile Demo</rp.launch>
         <rp.enable>true</rp.enable>
-        <rp.description>JDI Light Mobile Tests</rp.description>
-        <rp.mode>DEBUG</rp.mode>
+        <rp.description>JDI Light Mobile Tests Launch</rp.description>
+        <rp.mode>DEFAULT</rp.mode>
     </properties>
 
     <repositories>
