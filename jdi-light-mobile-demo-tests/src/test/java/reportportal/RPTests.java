@@ -73,7 +73,7 @@ public class RPTests extends RPTestsInit {
 
     @Test
     public void membersPageTest() {
-        memberssButton.click();
+        membersButton.click();
         membersPage.usernameLabel.is().displayed();
     }
 }

@@ -18,14 +18,4 @@
         <allure.maven>2.10.0</allure.maven>
     </properties>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>${allure.maven}</version>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>
