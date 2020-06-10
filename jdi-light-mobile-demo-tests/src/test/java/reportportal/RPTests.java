@@ -3,6 +3,8 @@ package reportportal;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
+import static com.epam.jdi.light.settings.WebSettings.logger;
+import static org.assertj.core.api.Assertions.assertThat;
 import static reportportal.RPSite.*;
 
 public class RPTests extends RPTestsInit {
@@ -14,17 +16,30 @@ public class RPTests extends RPTestsInit {
     @Test()
     public void dashboardPageTest() {
         dashboardPage.open();
-        dashboardPage.noDashboardsText.has().text(NO_DASHBOARD_TEXT);
-        dashboardPage.addDashboardText.has().text(FIRST_DASHBOARD_TEXT);
+        assertThat(dashboardPage.dashboardsNames.get(1).getText())
+                .as("First dashboard name contains JDI")
+                .contains("JDI");
     }
 
     @Test()
     public void addDashboardModalTest() {
         menuButton.click();
         leftMenu.dashboardButton.click();
+        projectSelector.select("test-user_personal");
+        dashboardPage.noDashboardsText.has().text(NO_DASHBOARD_TEXT);
+        dashboardPage.addDashboardText.has().text(FIRST_DASHBOARD_TEXT);
         dashboardPage.addDashboardButton.click();
         dashboardPage.modalCancelButton.click();
         dashboardPage.siteLogo.is().displayed();
+    }
+
+    @Test
+    public void addDashboardFailTest() {
+        dashboardPage.open();
+        dashboardPage.checkOpened();
+        assertThat(dashboardPage.dashboardsNames).isNotEmpty();
+        logger.info("Fail because button doesn't exist");
+        dashboardPage.addDashboardButton.click(); //will fail because button doesn't exist
     }
 
     @Test()
@@ -48,8 +63,12 @@ public class RPTests extends RPTestsInit {
 
     @Test()
     public void launchesTest() {
+        projectSelector.select("test-user_personal");
         menuButton.click();
         leftMenu.launchesButton.click();
+        assertThat(launchesPage.launchNames)
+                .as("There are not any launches")
+                .hasSizeLessThan(1);
         launchesPage.noResultsFoundLabel.is().displayed();
         launchesPage.noResultsFoundLabel.has().text(NO_RESULTS_TEXT);
     }

@@ -1,8 +1,10 @@
 package reportportal;
 
+import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
 import com.epam.jdi.light.elements.pageobjects.annotations.Title;
 import com.epam.jdi.light.elements.pageobjects.annotations.Url;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
 import com.epam.jdi.light.mobile.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.common.Link;
@@ -30,6 +32,12 @@ public class RPSite {
 
     @XPath("//*[@class='sidebar__sidebar--1J7aD']")
     public static RPLeftMenu leftMenu;
+
+    @JDropdown(root = "//div[contains(@class, 'projectSelector__project-selector')]",
+            expand = "//div[contains(@class, 'projectSelector__show')]",
+            list = "//a[contains(@class, 'projectSelector__project-list-item')]",
+            value = "//div[contains(@class, 'projectSelector__current-project-name')]")
+    public static Dropdown projectSelector;
 
     @XPath("//*[@class='mobileHeader__hamburger--95j4J']")
     public static Button menuButton;

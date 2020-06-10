@@ -9,7 +9,7 @@ import com.epam.jdi.light.ui.html.elements.common.TextField;
 public class RPDebugPage extends WebPage {
     @XPath("//input[@placeholder='Enter name']")
     public TextField launchNameInput;
-    @XPath("//div[contains(@class, 'itemInfo__main-info')]")
+    @XPath("(//div[contains(@class, 'itemInfo__main-info')])[1]")
     public Label launchName;
     @XPath("//div[contains(@class, 'actionPanel')]/button[contains(@class, 'ghostButton')]")
     public Button reloadButton;
