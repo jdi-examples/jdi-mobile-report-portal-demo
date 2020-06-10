@@ -22,6 +22,8 @@
         <aspectj.version>1.9.5</aspectj.version>
         <reportportal.version>5.0.0</reportportal.version>
         <suiteXml>reportportal_tests.xml</suiteXml>
+        <rp.endpoint>https://beta.demo.reportportal.io</rp.endpoint>
+        <rp.project>demoplatform</rp.project>
         <rp.launch>JDI Light Mobile Demo</rp.launch>
         <rp.enable>true</rp.enable>
         <rp.description>JDI Light Mobile Tests Launch</rp.description>
@@ -143,6 +145,10 @@
                     </argLine>
                     <properties>
                         <property>
+                            <name>allureListener</name>
+                            <value>io.qameta.allure.testng.AllureTestNg</value>
+                        </property>
+                        <property>
                             <name>listener</name>
                             <value>reportportal.MyListener</value>
                         </property>
@@ -166,15 +172,39 @@
 
     </build>
 
-    <!--&lt;!&ndash; Allure reporting config in parent&ndash;&gt;-->
-    <!--<reporting>-->
-        <!--<excludeDefaults>true</excludeDefaults>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>io.qameta.allure</groupId>-->
-                <!--<artifactId>allure-maven</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</reporting>-->
+    <!-- Allure reporting config in parent-->
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <rp.mode>DEFAULT</rp.mode>
+                <rp.enable>true</rp.enable>
+            </properties>
+        </profile>
+        <profile>
+            <id>debug</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <rp.description>Debug - JDI Light Mobile Tests Launch</rp.description>
+                <rp.mode>DEBUG</rp.mode>
+                <rp.enable>true</rp.enable>
+            </properties>
+        </profile>
+    </profiles>
 
 </project>

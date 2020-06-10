@@ -21,8 +21,8 @@ env:
     - MOBILE_PLATFORM_VERSION="13.0"
     - MOBILE_DEVICE="iPhone XS Simulator"
     - WITH_DRIVER_PARAMS="-Dwebdriver.remote.url=$REMOTE_URL"
-    - WITH_PLATFORM_PARAMS="-Dmobile.platform.name=$MOBILE_PLATFORM_NAME -Dmobile.device.name=$MOBILE_DEVICE -Dmobile.platform.version=MOBILE_PLATFORM_VERSION
-    - WITH_TESTS_PARAMS="-Dreport.portal.user=$USER_LOGIN -Dreport.portal.password=$USER_PASSWORD"
+    - WITH_PLATFORM_PARAMS="-Dmobile.platform.name=$MOBILE_PLATFORM_NAME -Dmobile.platform.version=$MOBILE_PLATFORM_VERSION"
+    - WITH_TESTS_PARAMS="-Dreport.portal.user=$USER_LOGIN -Dreport.portal.password=$USER_PASSWORD -Drp.uuid=$REPORTPORTAL_UUID"
 
 
 stages:
@@ -47,7 +47,7 @@ jobs:
       name: Run tests
       script:
         - mvn -ntp install -DskipTests
-        - mvn verify -pl $WITH_TESTS_PARAMS $WITH_DRIVER_PARAMS $WITH_PLATFORM_PARAMS
+        - mvn verify -Pdebug $WITH_TESTS_PARAMS $WITH_DRIVER_PARAMS $WITH_PLATFORM_PARAMS "-Dmobile.device.name=$MOBILE_DEVICE"
 
 after_failure:
   - echo "Build was failed"
