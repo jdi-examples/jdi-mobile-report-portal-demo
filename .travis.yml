@@ -24,11 +24,11 @@ env:
     - WITH_PLATFORM_PARAMS="-Dmobile.platform.name=$MOBILE_PLATFORM_NAME -Dmobile.platform.version=$MOBILE_PLATFORM_VERSION"
     - WITH_TESTS_PARAMS="-Dreport.portal.user=$USER_LOGIN -Dreport.portal.password=$USER_PASSWORD -Drp.uuid=$REPORTPORTAL_UUID"
 
-
 stages:
   - prepare
   - compile
   - test
+  - reports
 
 jobs:
   include:
@@ -49,11 +49,22 @@ jobs:
         - mvn -ntp install -DskipTests
         - mvn verify -Pdebug $WITH_TESTS_PARAMS $WITH_DRIVER_PARAMS $WITH_PLATFORM_PARAMS "-Dmobile.device.name=$MOBILE_DEVICE"
 
+    - stage: reports
+      name: Deploy allure reports to netlify
+      script:
+        - npm install -g allure-commandline
+        - npm install -g netlify-cli
+        - allure --version
+        - source reports.sh
+        - deployAllureResults
+
 after_failure:
   - echo "Build was failed"
 after_success:
   - echo "Build was successful"
 after_script:
+  - source reports.sh
+  - grubAllureResults
   - du -d 1 -h ./
   - ls -la
 # extra time during long builds
