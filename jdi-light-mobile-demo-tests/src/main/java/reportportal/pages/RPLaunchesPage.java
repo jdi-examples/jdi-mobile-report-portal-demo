@@ -8,7 +8,7 @@ import com.epam.jdi.light.mobile.elements.common.Text;
 import java.util.List;
 
 public class RPLaunchesPage extends WebPage {
-    @XPath("//*[@class='noItemMessage__message--2ydYP']")
+    @XPath("//*[contains(@class, 'noItemMessage__message')]")
     public Text noResultsFoundLabel;
     @XPath("//div[contains(@class, 'itemInfo__main-info')]")
     public List<Label> launchNames;
