@@ -30,7 +30,6 @@ public class RPSite {
     @Url("/#jdi-tests/members")
     public static RPMembersPage membersPage;
 
-    @XPath("//*[@class='sidebar__sidebar--1J7aD']")
     public static RPLeftMenu leftMenu;
 
     @JDropdown(root = "//div[contains(@class, 'projectSelector__project-selector')]",
@@ -39,7 +38,7 @@ public class RPSite {
             value = "//div[contains(@class, 'projectSelector__current-project-name')]")
     public static Dropdown projectSelector;
 
-    @XPath("//*[@class='mobileHeader__hamburger--95j4J']")
+    @XPath("(//div[contains(@class, 'mobileHeader__hamburger')])[1]")
     public static Button menuButton;
     @XPath("//a[@href='#jdi-tests/settings']")
     public static Link settingsButton;

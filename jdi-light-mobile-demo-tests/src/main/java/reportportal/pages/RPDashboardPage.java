@@ -13,9 +13,9 @@ public class RPDashboardPage extends WebPage {
     public Text noDashboardsText;
     @XPath("//*[contains(text(), 'Add your first dashboard to analyse statistics')]")
     public Text addDashboardText;
-    @XPath("//*[@class='emptyDashboards__empty-dashboard-content--RZbNx']//button")
+    @XPath("//*[contains(@class, 'emptyDashboards__empty-dashboard-content')]//button")
     public Button addDashboardButton;
-    @XPath("//*[@class='mobileHeader__rp-logo--QWmol']")
+    @XPath("//*[contains(@class, 'mobileHeader__rp-logo')]")
     public Icon siteLogo;
     @XPath("//*[contains(text(), 'Cancel')]")
     public Button modalCancelButton;
