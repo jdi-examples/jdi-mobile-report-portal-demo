@@ -15,8 +15,6 @@ env:
   global:
     - JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
     - PATH="$JAVA_HOME/bin:$PATH"
-    - USER_LOGIN="test-user"
-    - USER_PASSWORD="Fqvq1s0S"
     - MOBILE_PLATFORM_NAME="iOS"
     - MOBILE_PLATFORM_VERSION="13.0"
     - MOBILE_DEVICE="iPhone XS Simulator"
