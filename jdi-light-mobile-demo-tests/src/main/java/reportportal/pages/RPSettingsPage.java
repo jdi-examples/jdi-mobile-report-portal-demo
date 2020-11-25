@@ -1,10 +1,10 @@
 package reportportal.pages;
 
-import com.epam.jdi.light.elements.common.Label;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
 import com.epam.jdi.light.elements.composite.WebPage;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.XPath;
+import com.epam.jdi.light.ui.html.elements.common.Button;
 
 public class RPSettingsPage extends WebPage {
     @JDropdown(
@@ -14,6 +14,7 @@ public class RPSettingsPage extends WebPage {
             expand = "(//span[contains(@class, 'inputDropdown__arrow')])[1]"
     )
     public Dropdown settingsDropdown;
-    @XPath("//div[contains(text(), 'Billing Plan:')]/span")
-    public Label billingPlan;
+
+    @XPath("//span[text()='Generate demo data']/parent::button")
+    public Button generateDemoData;
 }
