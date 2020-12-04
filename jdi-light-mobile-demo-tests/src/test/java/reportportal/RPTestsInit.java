@@ -45,10 +45,10 @@ public class RPTestsInit {
     }
 
     private void setCaps() {
-        String cloudService = getProperty("cloud.service").toLowerCase();
+        String cloudService = getProperty("mobile.cloud.type").toLowerCase();
         String platform = getProperty("mobile.platform.name").toLowerCase();
         if (platform.equals("ios")) {
-            if(cloudService.equals("sauceLabs")) {
+            if(cloudService.equals("saucelabs")) {
                 CAPABILITIES_FOR_IOS.put("deviceName", getProperty("mobile.device.name"));
                 CAPABILITIES_FOR_IOS.put("platformVersion", getProperty("mobile.platform.version"));
             } else {
@@ -57,7 +57,7 @@ public class RPTestsInit {
                 CAPABILITIES_FOR_IOS.put("browserName", getProperty("browser.name"));
             }
         } else {
-            if(cloudService.equals("sauceLabs")) {
+            if(cloudService.equals("saucelabs")) {
             CAPABILITIES_FOR_ANDROID.put("deviceName", getProperty("mobile.device.name"));
             CAPABILITIES_FOR_ANDROID.put("platformVersion", getProperty("mobile.platform.version"));
             } else {
