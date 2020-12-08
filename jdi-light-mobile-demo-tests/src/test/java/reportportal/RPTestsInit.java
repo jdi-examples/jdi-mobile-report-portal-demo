@@ -54,6 +54,7 @@ public class RPTestsInit {
             } else {
                 CAPABILITIES_FOR_IOS.put("platformName", platform);
                 CAPABILITIES_FOR_IOS.put("udid", getProperty("mobile.device.udid"));
+                CAPABILITIES_FOR_IOS.put("browserName", "Safari");
             }
         } else {
             if(cloudService.equals("saucelabs")) {
@@ -62,6 +63,7 @@ public class RPTestsInit {
             } else {
                 CAPABILITIES_FOR_ANDROID.put("platformName", platform);
                 CAPABILITIES_FOR_ANDROID.put("udid", getProperty("mobile.device.udid"));
+                CAPABILITIES_FOR_ANDROID.put("browserName", getProperty("Chrome"));
             }
         }
     }
