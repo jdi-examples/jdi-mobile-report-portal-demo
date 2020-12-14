@@ -19,7 +19,7 @@ env:
     - MOBILE_PLATFORM_VERSION="13.0"
     - MOBILE_DEVICE="iPhone XS Simulator"
     - WITH_DRIVER_PARAMS="-Dwebdriver.remote.url=$REMOTE_URL"
-    - WITH_PLATFORM_PARAMS="-Dmobile.platform.name=$MOBILE_PLATFORM_NAME -Dmobile.platform.version=$MOBILE_PLATFORM_VERSION"
+    - WITH_PLATFORM_PARAMS="-Dmobile.cloud.type=Saucelabs -Dmobile.platform.name=$MOBILE_PLATFORM_NAME -Dmobile.platform.version=$MOBILE_PLATFORM_VERSION"
     - WITH_TESTS_PARAMS="-Dreport.portal.user=$USER_LOGIN -Dreport.portal.password=$USER_PASSWORD -Drp.uuid=$REPORTPORTAL_UUID"
 
 stages:
