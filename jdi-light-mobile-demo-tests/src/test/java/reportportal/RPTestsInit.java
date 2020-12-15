@@ -45,13 +45,26 @@ public class RPTestsInit {
     }
 
     private void setCaps() {
+        String cloudService = getProperty("mobile.cloud.type").toLowerCase();
         String platform = getProperty("mobile.platform.name").toLowerCase();
         if (platform.equals("ios")) {
-            CAPABILITIES_FOR_IOS.put("deviceName", getProperty("mobile.device.name"));
-            CAPABILITIES_FOR_IOS.put("platformVersion", getProperty("mobile.platform.version"));
+            if(cloudService.equals("saucelabs")) {
+                CAPABILITIES_FOR_IOS.put("deviceName", getProperty("mobile.device.name"));
+                CAPABILITIES_FOR_IOS.put("platformVersion", getProperty("mobile.platform.version"));
+            } else {
+                CAPABILITIES_FOR_IOS.put("platformName", platform);
+                CAPABILITIES_FOR_IOS.put("udid", getProperty("mobile.device.udid"));
+                CAPABILITIES_FOR_IOS.put("browserName", "Safari");
+            }
         } else {
+            if(cloudService.equals("saucelabs")) {
             CAPABILITIES_FOR_ANDROID.put("deviceName", getProperty("mobile.device.name"));
             CAPABILITIES_FOR_ANDROID.put("platformVersion", getProperty("mobile.platform.version"));
+            } else {
+                CAPABILITIES_FOR_ANDROID.put("platformName", platform);
+                CAPABILITIES_FOR_ANDROID.put("udid", getProperty("mobile.device.udid"));
+                CAPABILITIES_FOR_ANDROID.put("browserName", getProperty("Chrome"));
+            }
         }
     }
 

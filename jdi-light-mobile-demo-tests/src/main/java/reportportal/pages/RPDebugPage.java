@@ -11,6 +11,8 @@ public class RPDebugPage extends WebPage {
     public TextField launchNameInput;
     @XPath("(//div[contains(@class, 'itemInfo__main-info')])[1]")
     public Label launchName;
+    @XPath("//div[contains(@class, 'noItemMessage__message')]")
+    public Label noItemMessage;
     @XPath("//div[contains(@class, 'actionPanel')]/button[contains(@class, 'ghostButton')]")
     public Button reloadButton;
 }

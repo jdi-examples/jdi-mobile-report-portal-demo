@@ -16,9 +16,8 @@ public class RPTests extends RPTestsInit {
     @Test()
     public void dashboardPageTest() {
         dashboardPage.open();
-        assertThat(dashboardPage.dashboardsNames.get(1).getText())
-                .as("First dashboard name contains JDI")
-                .contains("JDI");
+        dashboardPage.noDashboardsText.is().displayed();
+        dashboardPage.noDashboardsText.has().text(NO_DASHBOARD_TEXT);
     }
 
     @Test()
@@ -37,9 +36,8 @@ public class RPTests extends RPTestsInit {
     public void addDashboardFailTest() {
         dashboardPage.open();
         dashboardPage.checkOpened();
-        assertThat(dashboardPage.dashboardsNames).isNotEmpty();
-        logger.info("Fail because button doesn't exist");
-        dashboardPage.addDashboardButton.click(); //will fail because button doesn't exist
+        logger.info("Fail because there are no dashboards");
+        assertThat(dashboardPage.dashboardsNames).isNotEmpty(); //will fail because there are no dashboards
     }
 
     @Test()
@@ -79,15 +77,16 @@ public class RPTests extends RPTestsInit {
         leftMenu.debugButton.click();
         debugPage.launchNameInput.setText("JDI");
         debugPage.reloadButton.click();
-        debugPage.launchName.has().text(Matchers.containsString("JDI"));
+        debugPage.noItemMessage.is().displayed();
+        debugPage.noItemMessage.has().text(Matchers.containsString("No results found"));
     }
 
     @Test
     public void settingsPageTest() {
         settingsButton.click();
         settingsPage.settingsDropdown.expand();
-        settingsPage.settingsDropdown.select("Billing");
-        settingsPage.billingPlan.has().text(Matchers.containsString("Test"));
+        settingsPage.settingsDropdown.select("Demo data");
+        settingsPage.generateDemoData.has().text(Matchers.containsString("Generate demo data"));
     }
 
     @Test
