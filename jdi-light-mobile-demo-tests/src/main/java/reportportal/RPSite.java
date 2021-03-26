@@ -12,7 +12,7 @@ import reportportal.pages.*;
 
 import static com.epam.jdi.light.common.CheckTypes.CONTAINS;
 
-@JSite("https://dev.reportportal.io/ui")
+@JSite("https://dev.fleetframework.io/ui")
 public class RPSite {
 
     @Url("/#login")  @Title(value = "Report Portal", validate = CONTAINS)
