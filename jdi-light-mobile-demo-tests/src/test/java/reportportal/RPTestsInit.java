@@ -1,6 +1,7 @@
 package reportportal;
 
 import com.epam.jdi.light.driver.WebDriverFactory;
+import com.epam.jdi.light.driver.WebDriverUtils;
 import com.epam.jdi.light.settings.JDISettings;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
@@ -19,6 +20,7 @@ public class RPTestsInit {
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
         String remoteUrl = getProperty("webdriver.remote.url");
+        WebDriverUtils.killAllSeleniumDrivers();
         initPlatform();
         initElements(RPSite.class);
         setCaps();
