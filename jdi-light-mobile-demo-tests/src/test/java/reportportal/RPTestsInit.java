@@ -20,13 +20,13 @@ public class RPTestsInit {
     @BeforeSuite(alwaysRun = true)
     public void setUp() {
         String remoteUrl = getProperty("webdriver.remote.url");
-        WebDriverUtils.killAllSeleniumDrivers();
         initPlatform();
         initElements(RPSite.class);
         setCaps();
         if(remoteUrl != null) {
             JDISettings.DRIVER.remoteUrl = remoteUrl;
         }
+        WebDriverFactory.getDriver().manage().deleteAllCookies();
         logger.toLog("Run Tests");
         login();
     }
