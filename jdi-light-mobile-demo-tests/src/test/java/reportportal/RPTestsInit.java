@@ -58,8 +58,8 @@ public class RPTestsInit {
             }
         } else {
             if(cloudService.equals("saucelabs")) {
-            CAPABILITIES_FOR_ANDROID.put("deviceName", getProperty("mobile.device.name"));
-            CAPABILITIES_FOR_ANDROID.put("platformVersion", getProperty("mobile.platform.version"));
+                CAPABILITIES_FOR_ANDROID.put("deviceName", getProperty("mobile.device.name"));
+                CAPABILITIES_FOR_ANDROID.put("platformVersion", getProperty("mobile.platform.version"));
             } else {
                 CAPABILITIES_FOR_ANDROID.put("platformName", platform);
                 CAPABILITIES_FOR_ANDROID.put("udid", getProperty("mobile.device.udid"));

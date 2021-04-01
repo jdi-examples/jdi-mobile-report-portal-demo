@@ -32,7 +32,7 @@ public class RPTests extends RPTestsInit {
         dashboardPage.siteLogo.is().displayed();
     }
 
-    @Test
+    @Test(expectedExceptions = { AssertionError.class }, expectedExceptionsMessageRegExp = "Expecting actual not to be empty")
     public void addDashboardFailTest() {
         dashboardPage.open();
         dashboardPage.checkOpened();
