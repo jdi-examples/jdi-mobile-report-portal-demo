@@ -21,8 +21,8 @@ public class RPTestsInit {
     public void setUp() {
         String remoteUrl = getProperty("webdriver.remote.url");
         initPlatform();
-        initMobile(RPSite.class);
         setCaps();
+        initMobile(RPSite.class);
         if(remoteUrl != null) {
             JDISettings.DRIVER.remoteUrl = remoteUrl;
         }
