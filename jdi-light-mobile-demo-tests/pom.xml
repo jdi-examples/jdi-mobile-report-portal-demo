@@ -152,8 +152,8 @@
                             <value>reportportal.MyListener</value>
                         </property>
                     </properties>
-                    <useSystemClassLoader>false</useSystemClassLoader>
                     <forkCount>0</forkCount>
+                    <forkMode>never</forkMode>
                 </configuration>
             </plugin>
         </plugins>
