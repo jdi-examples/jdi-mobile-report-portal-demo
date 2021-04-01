@@ -9,6 +9,5 @@
     </test>
     <listeners>
         <listener class-name="reportportal.TestNGListener" />
-        <listener class-name="reportportal.MyListener" />
     </listeners>
 </suite>
