@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeSuite;
 import static com.epam.jdi.light.mobile.driver.MobileDriverData.CAPABILITIES_FOR_ANDROID;
 import static com.epam.jdi.light.mobile.driver.MobileDriverData.CAPABILITIES_FOR_IOS;
 import static com.epam.jdi.light.mobile.elements.init.PageFactory.initElements;
+import static com.epam.jdi.light.mobile.elements.init.PageFactory.initMobile;
 import static com.epam.jdi.light.settings.WebSettings.logger;
 import static java.lang.System.getProperty;
 import static reportportal.RPSite.loginPage;
@@ -20,7 +21,7 @@ public class RPTestsInit {
     public void setUp() {
         String remoteUrl = getProperty("webdriver.remote.url");
         initPlatform();
-        initElements(RPSite.class);
+        initMobile(RPSite.class);
         setCaps();
         if(remoteUrl != null) {
             JDISettings.DRIVER.remoteUrl = remoteUrl;
