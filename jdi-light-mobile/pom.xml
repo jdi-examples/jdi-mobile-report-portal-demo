@@ -4,20 +4,15 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>jdi-mobile-report-portal-demo</artifactId>
-        <groupId>com.epam.jdi</groupId>
-        <version>1.0-SNAPSHOT</version>
-    </parent>
-
     <artifactId>jdi-light-mobile</artifactId>
     <name>JDI Light Mobile</name>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.3.11</version>
+    <groupId>com.epam.jdi</groupId>
 
     <properties>
-        <aspectj.version>1.9.5</aspectj.version>
-        <aspectj.maven>1.11</aspectj.maven>
+        <aspectj.version>1.9.1</aspectj.version>
+        <aspectj.maven>1.12.6</aspectj.maven>
         <java.version>1.8</java.version>
     </properties>
 
@@ -25,19 +20,7 @@
         <dependency>
             <groupId>com.epam.jdi</groupId>
             <artifactId>jdi-light</artifactId>
-            <version>1.2.13</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>23.0</version>
+            <version>1.3.11</version>
         </dependency>
 
         <dependency>
@@ -51,17 +34,18 @@
             <artifactId>aspectjweaver</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjrt</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjtools</artifactId>
             <version>${aspectj.version}</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -76,7 +60,7 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
+                <groupId>com.nickwongdev</groupId>
                 <artifactId>aspectj-maven-plugin</artifactId>
                 <version>${aspectj.maven}</version>
                 <configuration>
@@ -86,17 +70,17 @@
                     <Xlint>ignore</Xlint>
                     <complianceLevel>${java.version}</complianceLevel>
                     <encoding>UTF-8</encoding>
-                    <verbose>false</verbose>
-                    <outxml>true</outxml>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>test-compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
+                <verbose>false</verbose>
+                <outxml>true</outxml>
+            </configuration>
+            <executions>
+                <execution>
+                    <goals>
+                        <goal>compile</goal>
+                        <goal>test-compile</goal>
+                    </goals>
+                </execution>
+            </executions>
             </plugin>
         </plugins>
     </build>

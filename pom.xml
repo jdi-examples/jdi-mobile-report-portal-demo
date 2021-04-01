@@ -14,7 +14,7 @@
     </modules>
 
     <properties>
-        <allure.testng>2.13.2</allure.testng>
+        <allure.testng>2.13.8</allure.testng>
         <allure.maven>2.10.0</allure.maven>
     </properties>
 
