@@ -152,6 +152,7 @@
                             <value>reportportal.MyListener</value>
                         </property>
                     </properties>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
             </plugin>
         </plugins>
@@ -202,7 +203,7 @@
             <properties>
                 <rp.description>Debug - JDI Light Mobile Tests Launch</rp.description>
                 <rp.mode>DEBUG</rp.mode>
-                <rp.enable>true</rp.enable>
+                <rp.enable>false</rp.enable>
             </properties>
         </profile>
     </profiles>
