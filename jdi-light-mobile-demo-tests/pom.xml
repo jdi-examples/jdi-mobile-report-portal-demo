@@ -152,8 +152,6 @@
                             <value>reportportal.MyListener</value>
                         </property>
                     </properties>
-                    <forkCount>0</forkCount>
-                    <forkMode>never</forkMode>
                 </configuration>
             </plugin>
         </plugins>
