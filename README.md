@@ -5,16 +5,18 @@
 Stable environment: Java 8, Maven 3.6.3, JDI-Light 1.3.11, TestNG 7.4.0, Aspectj 1.9.*, Appium 1.20.2, Android 10 <br/>
 
 1. Launch Android emulator and wait until home screen is ready.
-1. Launch Appium and find out the listenning URL in the console (usually http://0.0.0.0:4723)
+1. Launch Appium and find out the listening URL in the console (usually http://0.0.0.0:4723)
 1. Set following settings in **test/resources/test.properties** file:
 ```
    driver=android 
    remote.type=appium
-   driver.remote.url=http://0.0.0.0:4724/wd/hub # should be URL form prev. step and remove leading # if any
+# should be URL form prev. step and remove leading # if any
+   driver.remote.url=http://0.0.0.0:4724/wd/hub 
 ```
 4. Set following settings in **test/resources/android.properties** file
 ```
-   deviceName={GET_UID_FROM_YOUR_ANDROID_VIRTUAL_DEVICE} # Section 'There we can find Device UID and name' and remove leading # if any
+# Section 'There we can find Device UID and name' and remove leading # if any
+   deviceName={GET_UID_FROM_YOUR_ANDROID_VIRTUAL_DEVICE} 
 ```
 
 
