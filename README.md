@@ -1,8 +1,6 @@
 # JDI Mobile Example
 
-
-
-##How to launch web tests on Android emulator  
+## How to launch web tests on Android emulator  
 
 Stable environment: Java 8, Maven 3.6.3, JDI-Light 1.3.11, TestNG 7.4.0, Aspectj 1.9.*, Appium 1.20.2, Android 10 <br/>
 
