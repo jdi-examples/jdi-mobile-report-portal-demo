@@ -29,7 +29,8 @@ public class RPTests extends RPTestsInit {
         dashboardPage.addDashboardText.has().text(FIRST_DASHBOARD_TEXT);
         dashboardPage.addDashboardButton.click();
         dashboardPage.modalCancelButton.click();
-        dashboardPage.siteLogo.is().displayed();
+        // TODO check in jdi-light-mobile (should work like this: dashboardPage.siteLogo.is().displayed();)
+        dashboardPage.siteLogo.core().is().displayed();
     }
 
     @Test(expectedExceptions = { AssertionError.class },
