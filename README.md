@@ -28,10 +28,10 @@ More information about JDI-Light in [Documentation](https://jdi-docs.github.io/j
 The easiest way to use Android Emulator is via Android Studio, but it's also possible to install Android SDK only (https://developer.android.com/studio/releases/sdk-tools)
 We describe a way via Android Studio.
 
-1. Download and install Android Studio (https://developer.android.com/studio)
-1. Run Android Studio and create a project using any available template
-1. Run AVD Manager (Tools -> AVD Manager)
-1. Create a virtual device with any available parameters
+1. Download and install Android Studio (https://developer.android.com/studio). Note: in case of error with HAXM installation just ignore it.
+1. Run Android Studio
+1. Run AVD Manager (Configure -> AVD Manager) (or via Tools -> AVD Manager for an open project)
+1. Create a virtual device with any available parameters (for example, Pixel_3a_API_30_x86)
 1. Run virtual device via button in Actions column ![Virtual device run](./docs/run_and_power_up.png "Run device")
 1. Power up your device via Power button (is highlighted on a previous screen)
 1. Open Chrome, confirm all agreements to get empty Chrome window with search field
@@ -46,7 +46,7 @@ Ready!
    * For Windows usually we need to install **npm** (https://nodejs.org/en/) and run `npm install -g appium`
    * All information is on official site https://appium.io/docs/en/about-appium/getting-started/?lang=en
    * After installation make sure that you can run appium in terminal:
-     * (for Windows) add appium directory to PATH environment variable. If you used 'npm install ...' command for installation appium will be in C:\Users\{USER_NAME}\AppData\Roaming\npm 
+     * (for Windows) add appium directory to PATH environment variable. If you used 'npm install ...' command for installation appium will be in C:\Users\\{USER_NAME}\AppData\Roaming\npm 
      * (for Windows) if you see error message like 'File cannot be loaded because the execution of scripts is disabled on this system. Please see "get-help about_signing" for more details' open new PowerShell terminal 'as Administrator' and run this command `Set-ExecutionPolicy -ExecutionPolicy Unrestricted`
 1. Download chromedriver for Chrome with version equal to Chrome version on your device (The number before the first '.' should be equal!). More information https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/web/chromedriver.md
    * Download correct version from https://chromedriver.chromium.org/downloads 
@@ -64,3 +64,13 @@ Ready!
 1. Device name is visible in Android Virtual Device Manager in a list
 1. UID is available in Extended controls (...) -> Help -> About
 ![Device UID and name](./docs/android_name_uid.png "Device UID and name")
+
+
+### Run jdi-mobile-report-portal-demo tests
+1. Launch the created virtual device
+1. Run 'appium' in console
+1. Open the tests project in IDEA. (Optional)
+1. Run the following maven command
+```
+mvn test -Dreport.portal.user=<user_name> -Dreport.portal.password=<user_password> -Dmobile.device.udid=<your_emulator_id> -Dmobile.cloud.type='EPAM' -Dmobile.platform.name=<Android_or_iOS> -Dmobile.platform.version=<platform_version> -Dmobile.device.name=<your_device_name> -Dmobile.device.orientation=portrait -Drp.uuid=<rp_uuid> -Drp.project=jdi -Drp.enable=false -Drp.attributes=env:dev-gcp;type:mobile -f pom.xml
+```
