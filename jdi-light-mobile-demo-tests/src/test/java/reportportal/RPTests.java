@@ -33,11 +33,10 @@ public class RPTests extends RPTestsInit {
     }
 
     @Test
-    public void addDashboardFailTest() {
+    public void noDashboardsTest() {
         dashboardPage.open();
         dashboardPage.checkOpened();
-        logger.info("Fail because there are no dashboards");
-        assertThat(dashboardPage.dashboardsNames).isNotEmpty(); //will fail because there are no dashboards
+        assertThat(dashboardPage.dashboardsNames).isEmpty();
     }
 
     @Test()
